@@ -1,0 +1,7 @@
+[Start]
+key1 = [ 3, [ 1, 2 ] ]
+[Start.key]
+key3 = [ 1, 2 ]
+[Start]
+key4 = 1
+key2 = 2
