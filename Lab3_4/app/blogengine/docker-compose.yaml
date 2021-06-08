@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+    db:
+        image: postgres
+        volumes:
+            - ./data/db:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_DB=ecom_db
+            - POSTGRES_USER=ecomuser
+            - POSTGRES_PASSWORD=devpass
+
+    web:
+        build: .
+        command: python manage.py runserver localhost:8000
+        volumes:
+            - .:/app
+        ports:
+            - "8000:8000"
+
+        depends_on:
+            - db
