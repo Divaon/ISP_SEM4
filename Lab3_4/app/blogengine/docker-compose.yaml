@@ -1,25 +1,21 @@
 version: '3'
 services:
     db:
-        image: mysql:5.7
-        ports:
-            - 3306
+        image: postgres
         volumes:
             - ./data/db:/var/lib/postgresql/data
         environment:
             - POSTGRES_DB=ecom_db
             - POSTGRES_USER=ecomuser
             - POSTGRES_PASSWORD=devpass
-        restart: always
-        volumes:
-            - ./data/db:/var/lib/postgresql/data
 
     web:
         image: divaon/isp2_sem4:lab4_2
-        command: python3 manage.py runserver localhost:8000
-        ports:
-            - '8000:8000'
+        command: python manage.py runserver localhost:8000
         volumes:
-            - ./app
+            - .:/app
+        ports:
+            - "8000:8000"
+
         depends_on:
             - db
