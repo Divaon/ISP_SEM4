@@ -1,26 +1,29 @@
-version: '3'
+version: '3.7'
 
 services:
   db:
-    image: mysql:5.7
-    ports:
+     image: mysql:5.7
+     ports:
       - 3306
-    environment:
-      MYSQL_DATABASE: 'db_django'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'password'
-    restart: always
-    volumes:
-      - ./db_django:/var/lib/mysql
+     environment:
+        MYSQL_DATABASE: 'db_django'
+        MYSQL_USER: 'user'
+        MYSQL_PASSWORD: 'password'
+        MYSQL_ROOT_PASSWORD: 'password'
+     volumes:
+      - postgres_data:/var/postgresql/data/
+
+
   web:
     image: divaon/blog_app:2.0
-    command: sh -c "python manage.py runserver localhost:8000"
-    environment:
-      WAIT_HOSTS: mysql:3306
-    volumes:
-      - .:/web_django
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
     ports:
       - '7000:8000'
+    volumes: 
+      - ./backPython/:/app/
     depends_on:
       - db
+    
+volumes:
+  postgres_data:
+    driver: local
