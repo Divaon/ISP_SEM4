@@ -1,16 +1,20 @@
-version: '3.8'
+version: '3'
 services:
     db:
         image: postgres
+        ports:
+            - 3306
         volumes:
             - ./data/db:/var/lib/postgresql/data
         environment:
             - POSTGRES_DB=ecom_db
             - POSTGRES_USER=ecomuser
             - POSTGRES_PASSWORD=devpass
+        restart: always
 
     web:
         build: .
+        image: divaon/isp2_sem4:lab4_2
         command: python manage.py runserver localhost:8000
         volumes:
             - .:/app
