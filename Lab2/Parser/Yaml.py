@@ -13,8 +13,8 @@ class Yaml:
     def dumps(self,string):
         return self.json_parsers.dumps(string)
 
-    def loads(self,string):
-        return self.json_parsers.loads(string)
+    def loads(self,string, complex_convert=True):
+        return self.json_parsers.loads(string, complex_convert)
     
-    def load(self,filepath):
-        return self.json_parsers.load(filepath)
+    def load(self,filepath, complex_convert=True):
+        return self.json_parsers.load(filepath, complex_convert)

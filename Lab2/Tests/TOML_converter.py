@@ -114,8 +114,7 @@ def convert_value(value_str):
     elif value_str == 'false':
         return False
     elif value_str.startswith('b'):
-        value_str = value_str[2:-1]
-        return bytes(value_str, 'utf-8')
+        return eval(value_str)
     elif value_str == 'None':
         return None
     elif value_str == '':

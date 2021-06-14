@@ -147,8 +147,7 @@ def convert_value(value_str):
         value_str = value_str.replace('"', '')
         return value_str
     elif value_str.startswith('b'):
-        value_str = value_str[2:-1]
-        return bytes(value_str, 'utf-8')
+        return eval(value_str)
     elif value_str.startswith('{'):
         return convert(value_str)
     elif value_str.startswith('['):

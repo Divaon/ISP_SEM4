@@ -69,6 +69,7 @@ def test_simple_object3():
     #print(strdata, 'hi')
     fromstrdata=serializer.loads(strdata)
     print(fromstrdata, '3 usual')
+    print(fromstrdata(5,1))
     #print(dir(fromstrdata),'5 dir')
     #print(dir(fromstrdata),'5 dir')
     #print(dir(sum),'6 dir')

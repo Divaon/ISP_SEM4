@@ -65,6 +65,7 @@ def test_simple_object3():
     strdata=serializer.dumps(sum)
     print(strdata, 'hi')
     fromstrdata=serializer.loads(strdata)
+    print(fromstrdata(5))
     print(fromstrdata, '3 usual')
     print(dir(fromstrdata),'5 dir')
     print(dir(fromstrdata),'5 dir')

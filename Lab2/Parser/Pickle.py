@@ -17,3 +17,5 @@ class Pickle:
   def loads(self, string):
     return pickle.loads(string)
 
+
+

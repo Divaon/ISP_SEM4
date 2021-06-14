@@ -84,7 +84,7 @@ def test_function():
     strdata1=converfromfile.deserialize('JSON', 'teest.json')
     converttofile.serialize(strdata1, 'TOML', 'teest.toml')
     strdata2=converfromfile1.deserialize('TOML', 'teest.toml')
-    converttofile1.serialize(SIMPLE_OBJECTS2, 'PICLE', 'teest.picle')
+    converttofile1.serialize(strdata1, 'PICLE', 'teest.picle')
     strdata3 = converfromfile2.deserialize('PICLE', 'teest.picle')
     converttofile3.serialize(strdata1, 'YAML', 'teest.yaml')
     strdata4 = converfromfile3.deserialize('YAML', 'teest.yaml')
